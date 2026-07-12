@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>개인정보처리방침 — Style Mirror</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px; line-height: 1.75; color: #1c1c1e; background: #f2f2f7;
+    }
+    .langbar { max-width: 760px; margin: 32px auto 0; display: flex; gap: 8px; padding: 0 8px; }
+    .langbar button {
+      font: inherit; font-size: 14px; cursor: pointer; border: 1px solid #d1d1d6;
+      background: #fff; color: #3a3a3c; padding: 7px 16px; border-radius: 999px; transition: all .15s;
+    }
+    .langbar button.active { background: #0071e3; color: #fff; border-color: #0071e3; }
+    .container {
+      max-width: 760px; margin: 16px auto 48px; background: #fff; border-radius: 16px;
+      padding: 48px 56px; box-shadow: 0 2px 16px rgba(0,0,0,.08);
+    }
+    .container h1 { font-size: 26px; font-weight: 700; letter-spacing: -.4px; margin-bottom: 8px; }
+    .container h2 { font-size: 18px; font-weight: 600; margin: 36px 0 12px; color: #1c1c1e; }
+    .container h3 { font-size: 15.5px; font-weight: 600; margin: 22px 0 8px; color: #1c1c1e; }
+    .container p, .container li { color: #3a3a3c; }
+    .container p { margin: 10px 0; }
+    .container ul, .container ol { padding-left: 20px; margin: 8px 0; }
+    .container li { margin-bottom: 6px; }
+    .container hr { border: none; border-top: 1px solid #e5e5ea; margin: 28px 0; }
+    .container a { color: #0071e3; text-decoration: none; }
+    .container a:hover { text-decoration: underline; }
+    .container blockquote {
+      background: #f0f4ff; border-left: 4px solid #0071e3; border-radius: 6px;
+      padding: 12px 18px; margin: 14px 0; font-size: 14.5px; color: #0051a8;
+    }
+    .container blockquote p { margin: 4px 0; color: #0051a8; }
+    .container table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; display: block; overflow-x: auto; }
+    .container th, .container td { border: 1px solid #d1d1d6; padding: 10px 14px; text-align: left; vertical-align: top; }
+    .container th { background: #f2f2f7; font-weight: 600; color: #1c1c1e; }
+    .container pre { white-space: pre-wrap; font: inherit; }
+    @media (max-width: 600px) { .container { padding: 32px 22px; margin: 12px auto 32px; border-radius: 0; } }
+  </style>
+</head>
+<body>
+  <div class="langbar">
+    <button data-l="ko" class="active">한국어</button>
+    <button data-l="en">English</button>
+    <button data-l="ja">日本語</button>
+  </div>
+  <div class="container" id="content"></div>
+
+  <script id="md-ko" type="text/plain">
+# Style Mirror — 개인정보처리방침
+
+**시행일:** 2026-07-12
+**최종 수정:** 2026-07-11
+
+> **영문 정본:** [English](privacy.html) 탭. 한·영 불일치 시 영문이 우선합니다.
+
+---
+
+## 1. 요약 — Style Mirror의 데이터 처리
+
+| 구분 | 처리 방식 |
+| --- | --- |
+| **피팅·배경·영상용 사진** | 이용자가 **생성을 요청할 때만** 서버·AI로 전송·처리. **회사가 이용자 사진·결과물을 영구 갤러리로 보관하지 않음.** 결과는 **기기**에 저장. |
+| **옷장·StyleBook·일기·저장 영상** | **기기에만** 저장(별도 업로드 갤러리 없음). |
+| **계정·크레딧·결제 메타** | Supabase 등 백엔드·결제 플랫폼에 저장. |
+
+앱 내 「사진은 기기에만 저장돼요」 문구는 **저장(storage)** 기준입니다. AI **처리(processing)** 는 생성 요청 시 해외 AI 등으로 일시 전송됩니다(§4).
+
+## 2. 수집하는 개인정보
+
+### 2.1 이용자가 제공하는 정보
+
+- **계정 정보:** 이메일, OAuth 식별자(Google 등), 제공자가 넘기는 표시 이름·프로필 사진 URL
+- **가입 동의:** 약관·본 방침 동의(동의 시각·버전 기록 시)
+- **고객 문의:** 문의 내용
+- **친구 초대:** 입력·공유한 초대 코드
+
+### 2.2 자동 수집
+
+- **이용·보안:** 앱 버전, OS, 이용 시각, 크레딧 차감·생성 작업 메타(성공/실패, 카테고리 — **이미지 본문 아님**)
+- **모더레이션·남용 방지:** 가명화된 user ID, 시각, 출처(피팅/영상/배경), 위반 **카테고리만**(이미지·프롬프트 미저장)
+- **결제:** Apple/Google·RevenueCat 경유 구매·구독 이벤트(상품 ID, 거래 참조 — **카드번호 미수집**)
+
+### 2.3 일시 처리(영구 보관 아님)
+
+생성 요청 시 일시적으로 처리되는 항목:
+
+- 체형·**본인 사진**, **의류 사진**(피팅)
+- 피팅 **결과 이미지**(배경·영상 생성)
+- 배경 프리셋·텍스트 설명
+
+HTTPS로 엣지 함수 및 제3자 AI에 전달됩니다(§4).
+
+### 2.4 기기에만 저장
+
+- 피팅 결과(StyleBook), 옷장, 체형 참고 사진, 스타일 일기, 저장 영상·썸네일
+- 알림·날씨용 **선택 도시**
+
+앱 삭제·데이터 삭제 시 소멸할 수 있습니다.
+
+### 2.5 선택적 권한
+
+- **카메라·사진:** 피팅·옷장·배경용. 거부 시 해당 기능 불가.
+- **알림(로컬):** 코디 리마인더 등. 현재 버전은 원격 푸시 없음(변경 시 앱 내 고지).
+
+### 2.6 날씨(Open-Meteo)
+
+이용자가 고른 **도시명**으로 예보 조회. **사진은 전송하지 않음.**
+
+## 3. 이용 목적
+
+- 회원 관리·인증
+- 요청한 AI 피팅·배경·영상 제공
+- 크레딧·구독·친구 초대 운영
+- 부정 이용·정책 위반 방지(모더레이션, 이용 제한)
+- 법령 준수·분쟁 대응
+- 서비스 안정성·보안
+- 고객 문의 처리
+
+**개인정보를 판매하지 않습니다.**
+**이용자 사진으로 회사 자체 AI 모델을 학습하지 않습니다.**
+
+## 4. 제3자 제공·처리위탁·국외 이전
+
+서비스 운영을 위해 아래 수탁자에게 정보가 제공·이전될 수 있습니다. AI 생성 기능은 **미국 등 해외**에서 처리됩니다.
+
+### 4.1 수탁자 및 국외 이전 (PIPA 제28조의8 고지)
+
+| 수탁자 | 소재지 | 위탁·이전 목적 | 이전 항목 | 보유·이용(회사 이해상) |
+| --- | --- | --- | --- | --- |
+| **Supabase, Inc.** | 싱가포르(AWS ap-southeast-1) | 인증, DB, 엣지 함수, 처리용 임시 저장 | 계정 ID, 이메일, 크레딧 원장, 작업 메타, 임시 이미지 | 계정 유지 기간; 임시 파일 약 1시간 내 정리; 탈퇴 시 §6 |
+| **Google LLC (Gemini)** | 미국 | 가상 피팅·배경 AI | 요청 시 제출한 사진·프롬프트 | [Gemini API 약관](https://ai.google.dev/gemini-api/terms)·[Google 개인정보처리방침](https://policies.google.com/privacy). 회사는 갤러리 형태로 미보관 |
+| **Luma AI, Inc.** | 미국 | 영상 AI | 선택한 피팅 **AFTER** 이미지 | [Luma 개인정보처리방침](https://lumalabs.ai/legal/privacy). **회사 서버에 영상 미보관**, 기기 전달 |
+| **Sightengine SAS** | 프랑스(EU) | 업로드 사전 모더레이션 | 스크리닝용 이미지 | 판정 카테고리만 로그, 이미지 미저장 |
+| **RevenueCat, Inc.** | 미국 | IAP·구독 관리 | 앱 user ID, 구매 이벤트 | RevenueCat 정책 |
+| **Apple / Google** | 각 정책 | 결제 | 스토어가 처리, 회사는 거래 메타 수신 | 스토어 정책 |
+| **Open-Meteo** | EU 등 | 날씨 API | 도시명 검색어 | 공개 API, 계정 연동 없음 |
+
+**이전 일시·방법:** 이용자가 해당 기능(피팅·배경·영상·결제 등)을 **요청·이용한 시점**에 **네트워크(HTTPS API)** 로 전송.
+
+**거부 권리 및 불이익:** 동의가 유일한 근거인 처리에 한해 거부할 수 있으며, 거부 시 **해당 AI·결제 기능 이용이 불가**할 수 있습니다. 계정·기기 저장 기능은 별도.
+
+### 4.2 처리 근거 (해당 시)
+
+- **계약 이행:** 서비스 제공
+- **동의:** 가입 시 확인, 선택 권한
+- **정당한 이익:** 보안·남용 방지(권리와의 균형)
+- **법적 의무:** 불법 콘텐츠 신고 등
+
+## 5. 보유 기간
+
+| 항목 | 기간 |
+| --- | --- |
+| 계정 식별정보(이메일·로그인) | 계정 유지 중; **탈퇴 시 삭제**(§6) |
+| 크레딧 원장·작업/남용 방지 메타 | 계정 유지 중; 탈퇴 후 **비식별 상태로 보존**(부정 이용 방지·회계, §6) |
+| 처리용 임시 업로드 | 짧은 기간(통상 **약 1시간** 이내 주기 삭제) |
+| AI 결과(서버) | **영구 갤러리 미보관**, 클라이언트 반환 |
+| 모더레이션 메타 | 남용 방지용 롤링 기간(시·일 단위), 이미지 없음 |
+| 고객 문의 | 처리·법령상 필요 기간 |
+| 스토어·RevenueCat | 세무·분쟁 대응 필요 기간 |
+
+만료된 크레딧 묶음은 만료 후 일정 기간(예: **90일**) 경과 후 삭제될 수 있습니다.
+
+## 6. 파기 및 회원 탈퇴
+
+- **탈퇴 시 영구 삭제:** **인증 계정(이메일·로그인 식별정보)**, **피팅 작업 기록**, 유저 폴더의 **업로드 임시 파일**.
+- **탈퇴 후 비식별 보존:** 크레딧 원장, 생성 작업 메타, 모더레이션·남용 방지 이벤트 등 거래·안전 기록은 계정 삭제로 **신원과의 연결이 끊긴 상태**로 부정 이용 방지·회계·법령 준수 목적으로 보존됩니다.
+- Apple/Google·RevenueCat 결제 기록은 법령·플랫폼 정책상 잔존할 수 있습니다.
+- **기기 데이터:** 앱 내 삭제 또는 앱 삭제로 제거.
+
+## 7. 이용자 권리
+
+열람·정정·삭제·처리 정지·동의 철회 등 권리를 행사할 수 있습니다.
+요청: innocode.core@gmail.com (본인 확인 절차 가능).
+
+## 8. 아동
+
+**만 14세 미만 아동**을 대상으로 하지 않으며, 그 개인정보를 **고의로 수집하지 않습니다.** 만 14세 미만은 법정대리인의 동의가 필요합니다.
+
+## 9. 자동화된 처리
+
+정책 위반 **자동 스크리닝·이용 제한**이 적용될 수 있습니다. 오탐 시 고객지원으로 문의해 주세요.
+
+## 10. 방침 변경
+
+본 페이지에 게시합니다. 중요 변경은 법령에 따라 **재동의·고지**합니다.
+
+## 11. 문의
+
+**개인정보 보호책임자 / 고객지원:** innocode.core@gmail.com
+
+## 12. 개인정보 처리자
+
+| 항목 | 내용 |
+| --- | --- |
+| **처리자** | InnoCode |
+| **주소** | Republic of Korea |
+| **대표** | InnoCode |
+| **연락처** | innocode.core@gmail.com |
+| **서비스** | Style Mirror 모바일 앱 |
+
+본 방침은 [이용약관](terms.html)과 함께 읽어 주세요.
+
+_본 방침의 사업자 정보는 사업자 등록·변경 시 갱신됩니다._
+  </script>
+
+  <script id="md-en" type="text/plain">
+# Style Mirror — Privacy Policy
+
+**Effective date:** 2026-07-12
+**Last updated:** 2026-07-11
+
+> This is the **authoritative English version**. If the KO/JA reference translations conflict, the English governs.
+
+---
+
+## 1. Summary — what makes Style Mirror different
+
+| Data | Typical handling |
+| --- | --- |
+| **Your photos (body, face, clothes, fitting results)** | Sent to our servers **only to process** a generation you request. **We do not keep a permanent gallery of your photos or results on our servers.** Outputs are returned to your **device**. Temporary upload copies may exist briefly for processing and are deleted on a short schedule (see §3). |
+| **Wardrobe, StyleBook, diary, saved videos** | Stored **on your device only** (unless you choose to share elsewhere). |
+| **Account & billing metadata** | Stored on our backend (Supabase) and with payment platforms as needed to operate credits and subscriptions. |
+
+## 2. Information we collect
+
+### 2.1 You provide
+
+- **Account identifiers:** email address and/or OAuth profile identifiers (e.g., Google account ID, display name, profile photo URL from the provider).
+- **Sign-up consent:** agreement to these policies (and timestamp/version, if we record it).
+- **Support messages:** content you send when contacting support.
+- **Referral codes:** codes you enter or share for referral rewards.
+
+### 2.2 Automatically collected
+
+- **Usage and security data:** app version, device/OS type, approximate timestamps, credit consumption events, generation job metadata (e.g., job ID, category, success/failure — **not** image content).
+- **Moderation and abuse-prevention metadata:** pseudonymous user ID, event time, source (fitting/video/background), violation category — **without storing uploaded images or prompts** in these logs.
+- **Payment events:** purchase and subscription events processed via **Apple/Google** and **RevenueCat** (product IDs, transaction references — not full payment card numbers).
+
+### 2.3 Processed transiently (not kept as your library)
+
+When you request AI generation, our systems temporarily process:
+
+- **Body / model photo** and **garment photo** (fitting)
+- **Fitting result image** (background replacement or video generation)
+- **Background prompts or preset selections**
+
+These are transmitted over encrypted HTTPS to our edge functions and third-party AI providers (see §4).
+
+### 2.4 Local-only on your device
+
+The app may store on your device, without uploading to our user gallery:
+
+- Saved fitting results (StyleBook / Records)
+- Wardrobe item photos
+- Body reference photo for camera fitting
+- Style diary entries and memos
+- Saved videos and thumbnails
+- Notification preferences and selected city for weather-based outfit tips
+
+Deleting the app or clearing app data may remove local content. **Back up content you wish to keep.**
+
+### 2.5 Optional device permissions
+
+- **Camera / Photo Library:** to capture or select images for fitting, wardrobe, and backgrounds. You can deny permission; related features will not work.
+- **Notifications (local):** for outfit reminders you enable. We do not use remote push notifications for generation completion in the current release unless stated otherwise in the app.
+
+### 2.6 Weather (daily outfit)
+
+If you use weather-based outfit suggestions, the app queries **Open-Meteo** with a **city name** you select (geocoding + forecast). We do not send your photos to Open-Meteo.
+
+## 3. How we use information
+
+We use information to:
+
+- create and manage your account and authenticate you;
+- provide AI fitting, background, and video features you request;
+- operate **credit balances**, subscriptions, and referral rewards;
+- prevent fraud, abuse, and policy violations (moderation, rate limits);
+- comply with law and respond to valid legal requests;
+- improve reliability and security of the Service;
+- respond to support inquiries.
+
+**We do not sell your personal information.**
+
+**We do not use your photos to train our own AI models.**
+
+Third-party AI providers (Google, Luma) process inputs under their policies; we send data only to fulfill your request.
+
+## 4. How we share information and international transfers
+
+We use service providers (“processors”) who may access information only to perform services for us. Because Style Mirror uses AI providers in the **United States** and infrastructure that may be located outside your country, **your information (including photos you submit for generation) may be transferred internationally.**
+
+### 4.1 Processors and transfers
+
+| Recipient | Location | Purpose | Data involved | Retention (our understanding) |
+| --- | --- | --- | --- | --- |
+| **Supabase, Inc.** | Singapore (AWS ap-southeast-1) | Authentication, database, edge functions, temporary storage for processing | Account ID, email, credit ledger, job metadata, temporary image files in fitting-images bucket | Account data while active; temp files swept ~hourly; see account deletion §7 |
+| **Google LLC (Gemini API)** | United States | Virtual fitting & background AI generation | Photos/prompts you submit for those features | Governed by [Gemini API Terms](https://ai.google.dev/gemini-api/terms) and [Google Privacy Policy](https://policies.google.com/privacy). We do not retain generation inputs as a user gallery. |
+| **Luma AI, Inc.** | United States | Video generation from your fitting result | Fitting **AFTER** image you choose to animate | Governed by [Luma's privacy policy](https://lumalabs.ai/legal/privacy). **We do not store the video on our servers**; result is delivered to your device. |
+| **Sightengine SAS** | France (EU) | Pre-generation content moderation (NSFW / minor detection) | Image submitted for screening | Screening only; we log verdict category, not image content |
+| **RevenueCat, Inc.** | United States | In-app purchase & subscription management | App user ID, purchase events, entitlements | Per RevenueCat policy while account active |
+| **Apple Inc. / Google LLC** | Varies | Payment processing for IAP | Payment handled by store; we receive transaction metadata | Per store policies |
+| **Open-Meteo** | EU/international CDN | Weather geocoding & forecast | City name search query | Public API; no account linkage |
+
+### 4.2 Legal bases (where applicable)
+
+Depending on your jurisdiction, we rely on:
+
+- **Contract:** to provide the Service you request;
+- **Consent:** where required (e.g., sign-up acknowledgment, optional permissions);
+- **Legitimate interests:** security, abuse prevention, and service improvement, balanced against your rights;
+- **Legal obligation:** e.g., reporting certain illegal content.
+
+### 4.3 Republic of Korea — cross-border transfer notice (PIPA)
+
+For users in the Republic of Korea, we disclose that personal information listed above may be transferred abroad as described in §4.1 for the stated purposes. **You may refuse consent only where consent is the sole legal basis; refusing may limit AI generation features that require those processors.** Details of each transfer (recipient, purpose, items, timing/method, retention) are in §4.1.
+
+## 5. Retention
+
+| Category | Retention |
+| --- | --- |
+| Account identity (email, sign-in) | While account is active; **deleted on account deletion** (see §7) |
+| Credit ledger & job/abuse metadata | While account is active; retained **de-identified** after deletion for fraud prevention and accounting (see §7) |
+| Temporary upload images (processing) | Short-term; periodic cleanup (typically within about **1 hour** after upload unless processing requires slightly longer) |
+| AI results on our servers | **Not stored** as a permanent user library; returned to client |
+| Moderation event metadata | Rolling windows for abuse controls (e.g., hours/days); no image content |
+| Support emails | As long as needed to resolve inquiry and comply with law |
+| Store/RevenueCat records | As required for tax, accounting, and dispute handling |
+
+Expired credit grant rows may be purged after a backend retention period (e.g., **90 days** after expiration).
+
+## 6. Security
+
+We use HTTPS, authenticated API access, server-side secrets for AI keys, and access controls on backend data. No method is 100% secure. **Do not upload content you cannot risk being processed by third-party AI systems.**
+
+## 7. Your rights and choices
+
+Depending on your location, you may have rights to **access, correct, delete, restrict, or object** to processing, and to **data portability**.
+
+- **Account deletion:** Settings in the app triggers permanent deletion of your **authentication account (including your email and sign-in identity)**, your **fitting job records**, and **uploaded temporary files** under your user folder. Certain transactional and safety records (credit ledger entries, generation job metadata, moderation/abuse-prevention events) are **retained in de-identified form** — after deletion they are no longer linked to your identity — for fraud/abuse prevention, accounting, and legal compliance. Some billing records may remain with Apple/Google/RevenueCat as required by law.
+- **Local data:** remove by deleting items in the app or uninstalling the app.
+- **Marketing:** we do not send promotional email by default from this policy; if we do in future, opt-out will be provided.
+
+To exercise rights, email innocode.core@gmail.com. We may verify your identity. You may lodge a complaint with your local supervisory authority.
+
+**California (CCPA/CPRA):** We do not sell personal information. See §4 for sharing with service providers.
+
+**EEA/UK (GDPR):** Controller contact in §12. Processors under contract where required.
+
+## 8. Children
+
+The Service is **not directed to children under 14**. We do not knowingly collect personal information from minors. If you believe a minor has provided information, contact us immediately at innocode.core@gmail.com.
+
+## 9. Automated decision-making
+
+We use **automated systems** to screen uploads for policy violations (e.g., nudity, minors) and to apply rate limits or temporary restrictions. These decisions affect your ability to use generation features but do not produce legal effects about you beyond Service access. Contact support if you believe an error occurred.
+
+## 10. Changes to this policy
+
+We will post updates on this page and update the “Last updated” date. Material changes may require renewed notice or consent where required by law.
+
+## 11. Contact
+
+**Privacy / Support:** innocode.core@gmail.com
+
+## 12. Who we are
+
+**Data controller:**
+**InnoCode**
+Address: Republic of Korea
+Email: innocode.core@gmail.com
+Service: **Style Mirror** mobile app
+
+This Privacy Policy explains how we collect, use, disclose, and protect information when you use the Service. It should be read with our [Terms of Service](terms.html).
+
+_Business information in this policy will be updated upon business registration or any change._
+  </script>
+
+  <script id="md-ja" type="text/plain">
+# Style Mirror — プライバシーポリシー
+
+**施行日:** 2026-07-12
+**最終更新:** 2026-07-11
+
+> **英語版が正文です。** 正文は [English](privacy.html) タブです。日本語と英語で相違がある場合は**英語**が優先します。
+
+---
+
+## 1. 概要 — Style Mirror のデータの取扱い
+
+| 区分 | 取扱方法 |
+| --- | --- |
+| **試着・背景・動画用の写真** | 利用者が**生成をリクエストしたときのみ**サーバー・AI へ送信・処理。**当社は利用者の写真・生成物を恒久的なギャラリーとして保管しません。** 結果は**端末**に保存。 |
+| **クローゼット・StyleBook・日記・保存動画** | **端末にのみ**保存（別途のアップロードギャラリーはありません）。 |
+| **アカウント・クレジット・決済メタ** | Supabase 等のバックエンド・決済プラットフォームに保存。 |
+
+アプリ内の「写真は端末にのみ保存されます」という表示は**保存（storage）**を基準としています。AI **処理（processing）**は、生成リクエスト時に海外の AI 等へ一時的に送信されます（§4）。
+
+## 2. 収集する個人情報
+
+### 2.1 利用者が提供する情報
+
+- **アカウント情報:** メールアドレス、OAuth 識別子（Google 等）、提供者から渡される表示名・プロフィール画像 URL
+- **登録時の同意:** 規約・本ポリシーへの同意（同意時刻・バージョンを記録する場合）
+- **お問い合わせ:** お問い合わせ内容
+- **友達招待:** 入力・共有した招待コード
+
+### 2.2 自動収集
+
+- **利用・セキュリティ:** アプリバージョン、OS、利用時刻、クレジット差引・生成ジョブのメタ（成功/失敗、カテゴリ — **画像本体ではありません**）
+- **モデレーション・濫用防止:** 仮名化された user ID、時刻、発生元（試着/動画/背景）、違反**カテゴリのみ**（画像・プロンプトは保存しません）
+- **決済:** Apple/Google・RevenueCat 経由の購入・サブスクリプションイベント（商品 ID、取引参照 — **カード番号は収集しません**）
+
+### 2.3 一時的な処理（恒久的な保管ではありません）
+
+生成リクエスト時に一時的に処理される項目:
+
+- 体型・**本人の写真**、**衣類の写真**（試着）
+- 試着**結果画像**（背景・動画生成）
+- 背景プリセット・テキスト説明
+
+HTTPS でエッジ関数および第三者 AI へ送信されます（§4）。
+
+### 2.4 端末にのみ保存
+
+- 試着結果（StyleBook）、クローゼット、体型参考写真、スタイル日記、保存動画・サムネイル
+- 通知・天気用の**選択した都市**
+
+アプリの削除・データ削除時に消滅することがあります。
+
+### 2.5 任意の権限
+
+- **カメラ・写真:** 試着・クローゼット・背景用。拒否した場合、当該機能を利用できません。
+- **通知（ローカル）:** コーディネートのリマインダー等。現行バージョンにリモートプッシュはありません（変更時はアプリ内で告知）。
+
+### 2.6 天気（Open-Meteo）
+
+利用者が選択した**都市名**で予報を照会します。**写真は送信しません。**
+
+## 3. 利用目的
+
+- 会員管理・認証
+- リクエストされた AI 試着・背景・動画の提供
+- クレジット・サブスクリプション・友達招待の運営
+- 不正利用・ポリシー違反の防止（モデレーション、利用制限）
+- 法令遵守・紛争対応
+- サービスの安定性・セキュリティ
+- お問い合わせ対応
+
+**個人情報を販売しません。**
+**利用者の写真で当社独自の AI モデルを学習しません。**
+
+## 4. 第三者提供・処理委託・国外移転
+
+サービス運営のため、以下の受託者へ情報が提供・移転されることがあります。AI 生成機能は**米国等の国外**で処理されます。
+
+### 4.1 受託者および国外移転
+
+| 受託者 | 所在地 | 委託・移転の目的 | 移転項目 | 保有・利用（当社の理解による） |
+| --- | --- | --- | --- | --- |
+| **Supabase, Inc.** | シンガポール（AWS ap-southeast-1） | 認証、DB、エッジ関数、処理用の一時保存 | アカウント ID、メール、クレジット台帳、ジョブメタ、一時画像 | アカウント維持期間中；一時ファイルは約1時間以内に整理；退会時は §6 |
+| **Google LLC (Gemini)** | 米国 | バーチャル試着・背景 AI | リクエスト時に提出した写真・プロンプト | [Gemini API 利用規約](https://ai.google.dev/gemini-api/terms)・[Google プライバシーポリシー](https://policies.google.com/privacy)。当社はギャラリー形態で保管しない |
+| **Luma AI, Inc.** | 米国 | 動画 AI | 選択した試着 **AFTER** 画像 | [Luma プライバシーポリシー](https://lumalabs.ai/legal/privacy)。**当社サーバーに動画を保管せず**、端末へ送信 |
+| **Sightengine SAS** | フランス（EU） | アップロードの事前モデレーション | スクリーニング用の画像 | 判定カテゴリのみログ、画像は保存しない |
+| **RevenueCat, Inc.** | 米国 | アプリ内課金・サブスクリプション管理 | アプリ user ID、購入イベント | RevenueCat のポリシー |
+| **Apple / Google** | 各ポリシー | 決済 | ストアが処理、当社は取引メタを受領 | ストアのポリシー |
+| **Open-Meteo** | EU 等 | 天気 API | 都市名の検索語 | 公開 API、アカウント連携なし |
+
+**移転の時期・方法:** 利用者が当該機能（試着・背景・動画・決済等）を**リクエスト・利用した時点**に、**ネットワーク（HTTPS API）**で送信します。
+
+**拒否する権利および不利益:** 同意を唯一の根拠とする処理に限り拒否することができ、拒否した場合は**当該 AI・決済機能を利用できない**ことがあります。アカウント・端末保存機能は別途です。
+
+### 4.2 処理の根拠（該当する場合）
+
+- **契約の履行:** サービスの提供
+- **同意:** 登録時の確認、任意の権限
+- **正当な利益:** セキュリティ・濫用防止（権利とのバランス）
+- **法的義務:** 違法コンテンツの通報等
+
+## 5. 保有期間
+
+| 項目 | 期間 |
+| --- | --- |
+| アカウント識別情報（メール・ログイン） | アカウント維持中；**退会時に削除**（§6） |
+| クレジット台帳・ジョブ/濫用防止メタ | アカウント維持中；退会後は**非識別状態で保存**（不正利用防止・会計、§6） |
+| 処理用の一時アップロード | 短期間（通常**約1時間**以内に定期削除） |
+| AI 結果（サーバー） | **恒久的ギャラリーとして保管せず**、クライアントへ返却 |
+| モデレーションメタ | 濫用防止用のローリング期間（時・日単位）、画像なし |
+| お問い合わせ | 対応・法令上必要な期間 |
+| ストア・RevenueCat | 税務・紛争対応に必要な期間 |
+
+期限切れのクレジット束は、失効後一定期間（例:**90日**）経過後に削除されることがあります。
+
+## 6. 破棄および退会
+
+- **退会時に永久削除:** **認証アカウント（メール・ログイン識別情報）**、**試着ジョブ記録**、ユーザーフォルダの**アップロード一時ファイル**。
+- **退会後の非識別保存:** クレジット台帳、生成ジョブメタ、モデレーション・濫用防止イベント等の取引・安全記録は、アカウント削除により**本人との紐付けが切れた状態**で、不正利用防止・会計・法令遵守の目的で保存されます。
+- Apple/Google・RevenueCat の決済記録は、法令・プラットフォームのポリシー上残存することがあります。
+- **端末データ:** アプリ内での削除、またはアプリの削除により除去します。
+
+## 7. 利用者の権利
+
+開示・訂正・削除・処理停止・同意撤回等の権利を行使できます。
+ご請求: innocode.core@gmail.com（本人確認の手続きを行う場合があります）。
+
+## 8. 児童
+
+**満14歳未満の児童**を対象とせず、その個人情報を**故意に収集しません。**
+
+## 9. 自動化された処理
+
+ポリシー違反の**自動スクリーニング・利用制限**が適用されることがあります。誤検知の場合はカスタマーサポートへお問い合わせください。
+
+## 10. ポリシーの変更
+
+本ページに掲載します。重要な変更については、法令に従い**再同意・告知**を行います。
+
+## 11. お問い合わせ
+
+**個人情報保護責任者 / カスタマーサポート:** innocode.core@gmail.com
+
+## 12. 個人情報取扱事業者
+
+| 項目 | 内容 |
+| --- | --- |
+| **取扱事業者** | InnoCode |
+| **所在地** | Republic of Korea |
+| **代表** | InnoCode |
+| **連絡先** | innocode.core@gmail.com |
+| **サービス** | Style Mirror モバイルアプリ |
+
+本ポリシーは[利用規約](terms.html)とあわせてお読みください。
+
+_本ポリシーの事業者情報は、事業者登録または変更時に更新されます。_
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script>
+    var TITLES = { ko: '개인정보처리방침 — Style Mirror', en: 'Privacy Policy — Style Mirror', ja: 'プライバシーポリシー — Style Mirror' };
+    function render(l) {
+      var md = document.getElementById('md-' + l).textContent;
+      var el = document.getElementById('content');
+      if (window.marked) { el.innerHTML = marked.parse(md); }
+      else { var pre = document.createElement('pre'); pre.textContent = md; el.innerHTML = ''; el.appendChild(pre); }
+      document.documentElement.lang = l;
+      document.title = TITLES[l];
+      var btns = document.querySelectorAll('.langbar button');
+      for (var i = 0; i < btns.length; i++) { btns[i].classList.toggle('active', btns[i].getAttribute('data-l') === l); }
+    }
+    (function () {
+      var btns = document.querySelectorAll('.langbar button');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function () { render(this.getAttribute('data-l')); });
+      }
+      render('ko');
+    })();
+  </script>
+</body>
+</html>
