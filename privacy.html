@@ -53,7 +53,7 @@
   <script id="md-ko" type="text/plain">
 # Style Mirror — 개인정보처리방침
 
-**시행일:** 2026-07-12
+**시행일:** 2026-08-05
 **최종 수정:** 2026-07-11
 
 > **영문 정본:** [English](privacy.html) 탭. 한·영 불일치 시 영문이 우선합니다.
@@ -107,9 +107,11 @@ HTTPS로 엣지 함수 및 제3자 AI에 전달됩니다(§4).
 - **카메라·사진:** 피팅·옷장·배경용. 거부 시 해당 기능 불가.
 - **알림(로컬):** 코디 리마인더 등. 현재 버전은 원격 푸시 없음(변경 시 앱 내 고지).
 
-### 2.6 날씨(Open-Meteo)
+### 2.6 날씨(MET Norway)
 
-이용자가 고른 **도시명**으로 예보 조회. **사진은 전송하지 않음.**
+이용자가 **앱에 내장된 목록에서 직접 고른 도시의 좌표**만 전송해 예보를 조회합니다.
+도시 검색은 **앱 안에서 처리되어 검색어는 전송되지 않으며**, GPS 위치·계정 정보·**사진은 전송하지 않습니다.**
+날씨 데이터 출처: MET Norway (CC BY 4.0).
 
 ## 3. 이용 목적
 
@@ -138,7 +140,7 @@ HTTPS로 엣지 함수 및 제3자 AI에 전달됩니다(§4).
 | **Sightengine SAS** | 프랑스(EU) | 업로드 사전 모더레이션 | 스크리닝용 이미지 | 판정 카테고리만 로그, 이미지 미저장 |
 | **RevenueCat, Inc.** | 미국 | IAP·구독 관리 | 앱 user ID, 구매 이벤트 | RevenueCat 정책 |
 | **Apple / Google** | 각 정책 | 결제 | 스토어가 처리, 회사는 거래 메타 수신 | 스토어 정책 |
-| **Open-Meteo** | EU 등 | 날씨 API | 도시명 검색어 | 공개 API, 계정 연동 없음 |
+| **MET Norway** | 노르웨이(EU/EEA) | 날씨 API | 이용자가 고른 도시의 좌표 | 공개 API, 계정 연동 없음, 키 불필요 |
 
 **이전 일시·방법:** 이용자가 해당 기능(피팅·배경·영상·결제 등)을 **요청·이용한 시점**에 **네트워크(HTTPS API)** 로 전송.
 
@@ -211,7 +213,7 @@ _본 방침의 사업자 정보는 사업자 등록·변경 시 갱신됩니다.
   <script id="md-en" type="text/plain">
 # Style Mirror — Privacy Policy
 
-**Effective date:** 2026-07-12
+**Effective date:** 2026-08-05
 **Last updated:** 2026-07-11
 
 > This is the **authoritative English version**. If the KO/JA reference translations conflict, the English governs.
@@ -271,7 +273,7 @@ Deleting the app or clearing app data may remove local content. **Back up conten
 
 ### 2.6 Weather (daily outfit)
 
-If you use weather-based outfit suggestions, the app queries **Open-Meteo** with a **city name** you select (geocoding + forecast). We do not send your photos to Open-Meteo.
+If you use weather-based outfit suggestions, the app queries **MET Norway** using only the **coordinates of a city you pick from a list built into the app**. City search runs on-device, so your search text is never sent. We do not send GPS location, account data, or your photos. Weather data from MET Norway (CC BY 4.0).
 
 ## 3. How we use information
 
@@ -305,7 +307,7 @@ We use service providers (“processors”) who may access information only to p
 | **Sightengine SAS** | France (EU) | Pre-generation content moderation (NSFW / minor detection) | Image submitted for screening | Screening only; we log verdict category, not image content |
 | **RevenueCat, Inc.** | United States | In-app purchase & subscription management | App user ID, purchase events, entitlements | Per RevenueCat policy while account active |
 | **Apple Inc. / Google LLC** | Varies | Payment processing for IAP | Payment handled by store; we receive transaction metadata | Per store policies |
-| **Open-Meteo** | EU/international CDN | Weather geocoding & forecast | City name search query | Public API; no account linkage |
+| **MET Norway** | Norway (EU/EEA) | Weather forecast | Coordinates of the city you picked | Public API; no account linkage; no API key |
 
 ### 4.2 Legal bases (where applicable)
 
@@ -384,7 +386,7 @@ _Business information in this policy will be updated upon business registration 
   <script id="md-ja" type="text/plain">
 # Style Mirror — プライバシーポリシー
 
-**施行日:** 2026-07-12
+**施行日:** 2026-08-05
 **最終更新:** 2026-07-11
 
 > **英語版が正文です。** 正文は [English](privacy.html) タブです。日本語と英語で相違がある場合は**英語**が優先します。
@@ -438,9 +440,11 @@ HTTPS でエッジ関数および第三者 AI へ送信されます（§4）。
 - **カメラ・写真:** 試着・クローゼット・背景用。拒否した場合、当該機能を利用できません。
 - **通知（ローカル）:** コーディネートのリマインダー等。現行バージョンにリモートプッシュはありません（変更時はアプリ内で告知）。
 
-### 2.6 天気（Open-Meteo）
+### 2.6 天気（MET Norway）
 
-利用者が選択した**都市名**で予報を照会します。**写真は送信しません。**
+**アプリに内蔵された一覧から利用者が選んだ都市の座標のみ**を送信して予報を取得します。
+都市検索は**アプリ内で処理されるため検索語は送信されず**、GPS 位置・アカウント情報・**写真は送信しません。**
+天気データ提供: MET Norway (CC BY 4.0)。
 
 ## 3. 利用目的
 
@@ -469,7 +473,7 @@ HTTPS でエッジ関数および第三者 AI へ送信されます（§4）。
 | **Sightengine SAS** | フランス（EU） | アップロードの事前モデレーション | スクリーニング用の画像 | 判定カテゴリのみログ、画像は保存しない |
 | **RevenueCat, Inc.** | 米国 | アプリ内課金・サブスクリプション管理 | アプリ user ID、購入イベント | RevenueCat のポリシー |
 | **Apple / Google** | 各ポリシー | 決済 | ストアが処理、当社は取引メタを受領 | ストアのポリシー |
-| **Open-Meteo** | EU 等 | 天気 API | 都市名の検索語 | 公開 API、アカウント連携なし |
+| **MET Norway** | ノルウェー(EU/EEA) | 天気 API | 利用者が選んだ都市の座標 | 公開 API、アカウント連携なし、キー不要 |
 
 **移転の時期・方法:** 利用者が当該機能（試着・背景・動画・決済等）を**リクエスト・利用した時点**に、**ネットワーク（HTTPS API）**で送信します。
 
