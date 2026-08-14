@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Style Mirror</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: #08080F; color: #F5F5FA;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      text-align: center; padding: 24px;
+    }
+    h1 { font-size: 26px; letter-spacing: 2px; margin: 0 0 8px; font-weight: 700; }
+    p  { color: #A9A9BC; margin: 6px 0 28px; line-height: 1.5; }
+    .btn {
+      display: block; width: 100%; max-width: 320px; margin: 10px auto;
+      padding: 15px 20px; border-radius: 14px; text-decoration: none;
+      font-size: 16px; font-weight: 600; color: #fff;
+      background: linear-gradient(135deg, #7B68FF, #FF6B9D);
+    }
+    .btn.secondary { background: #1C1C28; color: #D8D8E4; }
+    .note { margin-top: 26px; font-size: 13px; color: #6E6E82; }
+  </style>
+</head>
+<body>
+  <h1>STYLE MIRROR</h1>
+  <p id="msg">앱으로 이동 중…</p>
+
+  <!-- JS 미동작/데스크톱 폴백: 두 스토어 버튼 노출 -->
+  <div id="fallback" style="display:none; width:100%;">
+    <a class="btn" id="iosBtn">App Store (iPhone)</a>
+    <a class="btn secondary" id="androidBtn">Google Play (Android)</a>
+    <p class="note">설치 후 가입할 때 <b>초대 코드</b>를 입력하면 크레딧을 받아요.</p>
+  </div>
+
+  <script>
+    // 🔴 iOS 출시 전에는 APP_STORE_URL 을 빈 문자열로 둔다.
+    //    자리표시자 URL(idAPPLE_APP_ID)로 보내면 iOS 사용자가 깨진 App Store 페이지를 본다.
+    //    출시 후 "https://apps.apple.com/app/id숫자ID" 로 교체하면 자동으로 iOS 라우팅이 살아난다.
+    var APP_STORE_URL = "";
+    var PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.innocode.style_mirror";
+
+    var ua = navigator.userAgent || navigator.vendor || "";
+    var isAndroid = /android/i.test(ua);
+    var isIOS = /iphone|ipad|ipod/i.test(ua) ||
+                (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1); // iPadOS
+
+    if (isAndroid) {
+      location.replace(PLAY_STORE_URL);
+    } else if (isIOS && APP_STORE_URL) {
+      location.replace(APP_STORE_URL);
+    } else {
+      // 데스크톱 · 알 수 없는 기기 · iOS 미출시 → 선택 화면
+      document.getElementById("msg").textContent =
+        isIOS ? "iOS 버전은 준비 중이에요" : "설치할 스토어를 선택하세요";
+
+      var iosBtn = document.getElementById("iosBtn");
+      if (APP_STORE_URL) {
+        iosBtn.href = APP_STORE_URL;
+      } else {
+        iosBtn.style.display = "none"; // 링크 없는 버튼을 노출하지 않는다
+      }
+
+      document.getElementById("androidBtn").href = PLAY_STORE_URL;
+      document.getElementById("fallback").style.display = "block";
+    }
+  </script>
+</body>
+</html>
