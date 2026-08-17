@@ -134,7 +134,7 @@ HTTPS로 엣지 함수 및 제3자 AI에 전달됩니다(§4).
 
 | 수탁자 | 소재지 | 위탁·이전 목적 | 이전 항목 | 보유·이용(회사 이해상) |
 | --- | --- | --- | --- | --- |
-| **Supabase, Inc.** | 싱가포르(AWS ap-southeast-1) | 인증, DB, 엣지 함수, 처리용 임시 저장 | 계정 ID, 이메일, 크레딧 원장, 작업 메타, 임시 이미지 | 계정 유지 기간; 임시 파일 약 1시간 내 정리; 탈퇴 시 §6 |
+| **Supabase, Inc.** | 싱가포르(AWS ap-southeast-1) | 인증, DB, 엣지 함수, 처리용 임시 저장 | 계정 ID, 이메일, 크레딧 원장, 작업 메타, 임시 이미지 | 계정 유지 기간; 임시 파일 수 시간 내 정리; 탈퇴 시 §6 |
 | **Plus Five Five, Inc. (Resend)** | 미국(캘리포니아, AWS us-east-1) | 로그인 인증 메일(OTP) 발송 | 이메일 주소, 인증 코드 | [Resend 개인정보처리방침](https://resend.com/legal/privacy-policy). 발송 이력은 Resend 정책에 따름 |
 | **Google LLC (Gemini)** | 미국 | 가상 피팅·배경 AI | 요청 시 제출한 사진·프롬프트 | [Gemini API 약관](https://ai.google.dev/gemini-api/terms)·[Google 개인정보처리방침](https://policies.google.com/privacy). 회사는 갤러리 형태로 미보관 |
 | **Luma AI, Inc.** | 미국 | 영상 AI | 선택한 피팅 **AFTER** 이미지 | [Luma 개인정보처리방침](https://lumalabs.ai/legal/privacy). **회사 서버에 영상 미보관**, 기기 전달 |
@@ -160,7 +160,7 @@ HTTPS로 엣지 함수 및 제3자 AI에 전달됩니다(§4).
 | --- | --- |
 | 계정 식별정보(이메일·로그인) | 계정 유지 중; **탈퇴 시 삭제**(§6) |
 | 크레딧 원장·작업/남용 방지 메타 | 계정 유지 중; 탈퇴 후 **비식별 상태로 보존**(부정 이용 방지·회계, §6) |
-| 처리용 임시 업로드 | 짧은 기간(통상 **약 1시간** 이내 주기 삭제) |
+| 처리용 임시 업로드 | 짧은 기간(통상 **수 시간** 이내 주기 삭제) |
 | AI 결과(서버) | **영구 갤러리 미보관**, 클라이언트 반환 |
 | 모더레이션 메타 | 남용 방지용 롤링 기간(시·일 단위), 이미지 없음 |
 | 고객 문의 | 처리·법령상 필요 기간 |
@@ -302,7 +302,7 @@ We use service providers (“processors”) who may access information only to p
 
 | Recipient | Location | Purpose | Data involved | Retention (our understanding) |
 | --- | --- | --- | --- | --- |
-| **Supabase, Inc.** | Singapore (AWS ap-southeast-1) | Authentication, database, edge functions, temporary storage for processing | Account ID, email, credit ledger, job metadata, temporary image files in fitting-images bucket | Account data while active; temp files swept ~hourly; see account deletion §7 |
+| **Supabase, Inc.** | Singapore (AWS ap-southeast-1) | Authentication, database, edge functions, temporary storage for processing | Account ID, email, credit ledger, job metadata, temporary image files in fitting-images bucket | Account data while active; temp files swept within a few hours; see account deletion §7 |
 | **Plus Five Five, Inc. (Resend)** | United States (California, AWS us-east-1) | Sending login verification emails (OTP) | Email address, verification code | Governed by [Resend's privacy policy](https://resend.com/legal/privacy-policy); delivery logs retained per Resend policy |
 | **Google LLC (Gemini API)** | United States | Virtual fitting & background AI generation | Photos/prompts you submit for those features | Governed by [Gemini API Terms](https://ai.google.dev/gemini-api/terms) and [Google Privacy Policy](https://policies.google.com/privacy). We do not retain generation inputs as a user gallery. |
 | **Luma AI, Inc.** | United States | Video generation from your fitting result | Fitting **AFTER** image you choose to animate | Governed by [Luma's privacy policy](https://lumalabs.ai/legal/privacy). **We do not store the video on our servers**; result is delivered to your device. |
@@ -330,7 +330,7 @@ For users in the Republic of Korea, we disclose that personal information listed
 | --- | --- |
 | Account identity (email, sign-in) | While account is active; **deleted on account deletion** (see §7) |
 | Credit ledger & job/abuse metadata | While account is active; retained **de-identified** after deletion for fraud prevention and accounting (see §7) |
-| Temporary upload images (processing) | Short-term; periodic cleanup (typically within about **1 hour** after upload unless processing requires slightly longer) |
+| Temporary upload images (processing) | Short-term; periodic cleanup (typically within **a few hours** after upload) |
 | AI results on our servers | **Not stored** as a permanent user library; returned to client |
 | Moderation event metadata | Rolling windows for abuse controls (e.g., hours/days); no image content |
 | Support emails | As long as needed to resolve inquiry and comply with law |
@@ -469,7 +469,7 @@ HTTPS でエッジ関数および第三者 AI へ送信されます（§4）。
 
 | 受託者 | 所在地 | 委託・移転の目的 | 移転項目 | 保有・利用（当社の理解による） |
 | --- | --- | --- | --- | --- |
-| **Supabase, Inc.** | シンガポール（AWS ap-southeast-1） | 認証、DB、エッジ関数、処理用の一時保存 | アカウント ID、メール、クレジット台帳、ジョブメタ、一時画像 | アカウント維持期間中；一時ファイルは約1時間以内に整理；退会時は §6 |
+| **Supabase, Inc.** | シンガポール（AWS ap-southeast-1） | 認証、DB、エッジ関数、処理用の一時保存 | アカウント ID、メール、クレジット台帳、ジョブメタ、一時画像 | アカウント維持期間中；一時ファイルは数時間以内に整理；退会時は §6 |
 | **Plus Five Five, Inc. (Resend)** | 米国（カリフォルニア、AWS us-east-1） | ログイン認証メール（OTP）の送信 | メールアドレス、認証コード | [Resend プライバシーポリシー](https://resend.com/legal/privacy-policy)。送信履歴は Resend のポリシーに従う |
 | **Google LLC (Gemini)** | 米国 | バーチャル試着・背景 AI | リクエスト時に提出した写真・プロンプト | [Gemini API 利用規約](https://ai.google.dev/gemini-api/terms)・[Google プライバシーポリシー](https://policies.google.com/privacy)。当社はギャラリー形態で保管しない |
 | **Luma AI, Inc.** | 米国 | 動画 AI | 選択した試着 **AFTER** 画像 | [Luma プライバシーポリシー](https://lumalabs.ai/legal/privacy)。**当社サーバーに動画を保管せず**、端末へ送信 |
@@ -495,7 +495,7 @@ HTTPS でエッジ関数および第三者 AI へ送信されます（§4）。
 | --- | --- |
 | アカウント識別情報（メール・ログイン） | アカウント維持中；**退会時に削除**（§6） |
 | クレジット台帳・ジョブ/濫用防止メタ | アカウント維持中；退会後は**非識別状態で保存**（不正利用防止・会計、§6） |
-| 処理用の一時アップロード | 短期間（通常**約1時間**以内に定期削除） |
+| 処理用の一時アップロード | 短期間（通常**数時間**以内に定期削除） |
 | AI 結果（サーバー） | **恒久的ギャラリーとして保管せず**、クライアントへ返却 |
 | モデレーションメタ | 濫用防止用のローリング期間（時・日単位）、画像なし |
 | お問い合わせ | 対応・法令上必要な期間 |
