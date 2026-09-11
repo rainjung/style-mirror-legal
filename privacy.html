@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>개인정보처리방침 — Style Mirror</title>
+  <title>Privacy Policy — Style Mirror</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -44,8 +44,8 @@
 </head>
 <body>
   <div class="langbar">
-    <button data-l="ko" class="active">한국어</button>
-    <button data-l="en">English</button>
+    <button data-l="en" class="active">English</button>
+    <button data-l="ko">한국어</button>
     <button data-l="ja">日本語</button>
   </div>
   <div class="container" id="content"></div>
@@ -564,7 +564,7 @@ _本ポリシーの事業者情報は、事業者登録または変更時に更�
       for (var i = 0; i < btns.length; i++) {
         btns[i].addEventListener('click', function () { render(this.getAttribute('data-l')); });
       }
-      render('ko');
+      render('en');
     })();
   </script>
 </body>
