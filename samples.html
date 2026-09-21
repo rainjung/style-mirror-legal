@@ -31,6 +31,13 @@
     figure img { width: 100%; border-radius: 12px; display: block; background: #f2f2f7; }
     figcaption { font-size: 14px; color: #3a3a3c; margin-top: 6px; text-align: center; }
     a { color: #0071e3; text-decoration: none; }
+    .save-all {
+      display: block; width: 100%; margin: 18px 0 6px; padding: 14px 20px; min-height: 48px;
+      font: inherit; font-size: 17px; font-weight: 600; color: #fff; background: #0071e3;
+      border: none; border-radius: 12px; cursor: pointer;
+    }
+    .save-all:disabled { background: #a1c6f0; cursor: default; }
+    .hint { font-size: 14.5px; }
     @media (max-width: 600px) {
       .container { padding: 32px 22px; margin: 12px auto 32px; border-radius: 0; }
       .grid { gap: 10px; }
@@ -43,7 +50,9 @@
     <p>Use these photos to try the main feature if you don't have a full-body photo or clothing photos on your device.
       All images are AI-generated and do not show real people.</p>
 
-    <blockquote>On iPhone: touch and hold each image, then tap <b>Save to Photos</b>.</blockquote>
+    <button class="save-all" id="saveAll" disabled>Save all 4 photos</button>
+    <p class="hint" id="saveHint">Tap the button, then choose <b>Save 4 Images</b> in the share sheet.
+      Or touch and hold each image and tap <b>Save to Photos</b>.</p>
 
     <h2>1. Full-body photo</h2>
     <div class="grid">
@@ -81,5 +90,28 @@
 
     <p>Questions: <a href="mailto:innocode.core@gmail.com">innocode.core@gmail.com</a></p>
   </div>
+  <script>
+    // Safari 는 공유 시트를 버튼 탭 직후에만 연다 — 그래서 파일을 미리 받아 두고 탭하면 바로 share() 한다.
+    const names = ['full-body.jpg', 'top-knit.jpg', 'bottom-denim-skirt.jpg', 'dress-floral.jpg'];
+    const btn = document.getElementById('saveAll');
+    let files = null;
+    Promise.all(names.map(n => fetch('samples/' + n)
+      .then(r => r.blob())
+      .then(b => new File([b], n, { type: 'image/jpeg' }))))
+      .then(list => {
+        files = list;
+        if (navigator.canShare && navigator.canShare({ files })) {
+          btn.disabled = false;
+        } else {
+          btn.style.display = 'none';
+          document.getElementById('saveHint').innerHTML =
+            'Touch and hold each image and tap <b>Save to Photos</b>, or tap an image to open it full size.';
+        }
+      })
+      .catch(() => { btn.style.display = 'none'; });
+    btn.addEventListener('click', () => {
+      if (files) navigator.share({ files }).catch(() => {});
+    });
+  </script>
 </body>
 </html>
