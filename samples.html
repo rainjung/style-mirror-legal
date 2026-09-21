@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Sample Photos — Style Mirror</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px; line-height: 1.75; color: #1c1c1e; background: #f2f2f7;
+    }
+    .container {
+      max-width: 760px; margin: 32px auto 48px; background: #fff; border-radius: 16px;
+      padding: 48px 56px; box-shadow: 0 2px 16px rgba(0,0,0,.08);
+    }
+    h1 { font-size: 26px; font-weight: 700; letter-spacing: -.4px; margin-bottom: 8px; }
+    h2 { font-size: 18px; font-weight: 600; margin: 32px 0 12px; }
+    p, li { color: #3a3a3c; }
+    p { margin: 10px 0; }
+    ol { padding-left: 20px; margin: 8px 0; }
+    li { margin-bottom: 6px; }
+    b { color: #1c1c1e; }
+    blockquote {
+      background: #f0f4ff; border-left: 4px solid #0071e3; border-radius: 6px;
+      padding: 12px 18px; margin: 14px 0; font-size: 14.5px; color: #0051a8;
+    }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 12px; }
+    figure { margin: 0; }
+    figure img { width: 100%; border-radius: 12px; display: block; background: #f2f2f7; }
+    figcaption { font-size: 14px; color: #3a3a3c; margin-top: 6px; text-align: center; }
+    a { color: #0071e3; text-decoration: none; }
+    @media (max-width: 600px) {
+      .container { padding: 32px 22px; margin: 12px auto 32px; border-radius: 0; }
+      .grid { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Style Mirror — Sample Photos</h1>
+    <p>Use these photos to try the main feature if you don't have a full-body photo or clothing photos on your device.
+      All images are AI-generated and do not show real people.</p>
+
+    <blockquote>On iPhone: touch and hold each image, then tap <b>Save to Photos</b>.</blockquote>
+
+    <h2>1. Full-body photo</h2>
+    <div class="grid">
+      <figure>
+        <a href="samples/full-body.jpg"><img src="samples/full-body.jpg" alt="Front-facing full-body photo of a woman" /></a>
+        <figcaption>Full-body photo</figcaption>
+      </figure>
+    </div>
+
+    <h2>2. Clothing photos</h2>
+    <div class="grid">
+      <figure>
+        <a href="samples/top-knit.jpg"><img src="samples/top-knit.jpg" alt="Cream knit sweater" /></a>
+        <figcaption>Top</figcaption>
+      </figure>
+      <figure>
+        <a href="samples/bottom-denim-skirt.jpg"><img src="samples/bottom-denim-skirt.jpg" alt="Denim mini skirt" /></a>
+        <figcaption>Bottom</figcaption>
+      </figure>
+      <figure>
+        <a href="samples/dress-floral.jpg"><img src="samples/dress-floral.jpg" alt="Pink floral dress" /></a>
+        <figcaption>One-piece</figcaption>
+      </figure>
+    </div>
+
+    <h2>How to try it</h2>
+    <ol>
+      <li>Save the four photos above to Photos.</li>
+      <li>In the app, open <b>Closet</b>, select <b>My Photos</b>, tap <b>+</b> and add the full-body photo.</li>
+      <li>Select <b>ALL</b>, tap <b>+</b> and add the clothing photos.</li>
+      <li>Tap the <b>Fitting</b> button in the middle of the tab bar. Choose <b>Top &amp; Bottom</b> or <b>One&#8209;piece</b>,
+        put the items on the slots, then tap <b>Start Fitting</b>. The result takes about 10–30 seconds.</li>
+      <li>Results are saved in <b>StyleBook</b>.</li>
+    </ol>
+
+    <p>Questions: <a href="mailto:innocode.core@gmail.com">innocode.core@gmail.com</a></p>
+  </div>
+</body>
+</html>
