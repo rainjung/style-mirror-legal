@@ -47,11 +47,11 @@
 <body>
   <div class="container">
     <h1>Style Mirror — Sample Photos</h1>
-    <p>Use these photos to try the main feature if you don't have a full-body photo or clothing photos on your device.
+    <p>Use these photos to try the main features if you don't have a full-body photo, clothing photos or hairstyle photos on your device.
       All images are AI-generated and do not show real people.</p>
 
-    <button class="save-all" id="saveAll" disabled>Save all 4 photos</button>
-    <p class="hint" id="saveHint">Tap the button, then choose <b>Save 4 Images</b> in the share sheet.
+    <button class="save-all" id="saveAll" disabled>Save all 6 photos</button>
+    <p class="hint" id="saveHint">Tap the button, then choose <b>Save 6 Images</b> in the share sheet.
       Or touch and hold each image and tap <b>Save to Photos</b>.</p>
 
     <h2>1. Full-body photo</h2>
@@ -78,9 +78,21 @@
       </figure>
     </div>
 
+    <h2>3. Hairstyle photos (Hair Studio)</h2>
+    <div class="grid">
+      <figure>
+        <a href="samples/hair-short-bob.jpg"><img src="samples/hair-short-bob.jpg" alt="Woman with a short ash-blonde bob and bangs" /></a>
+        <figcaption>Short bob</figcaption>
+      </figure>
+      <figure>
+        <a href="samples/hair-long-wave.jpg"><img src="samples/hair-long-wave.jpg" alt="Woman with long black wavy hair" /></a>
+        <figcaption>Long waves</figcaption>
+      </figure>
+    </div>
+
     <h2>How to try it</h2>
     <ol>
-      <li>Save the four photos above to Photos.</li>
+      <li>Save the six photos above to Photos.</li>
       <li>In the app, open <b>Closet</b>, select <b>My Photos</b>, tap <b>+</b> and add the full-body photo.</li>
       <li>Select <b>ALL</b>, tap <b>+</b> and add the clothing photos.</li>
       <li>Tap the <b>Fitting</b> button in the middle of the tab bar. Choose <b>Top &amp; Bottom</b> or <b>One&#8209;piece</b>,
@@ -88,11 +100,20 @@
       <li>Results are saved in <b>StyleBook</b>.</li>
     </ol>
 
+    <h2>How to try Hair Studio</h2>
+    <ol>
+      <li>On <b>Home</b>, tap <b>Try a hairstyle</b> on the Hair Studio card.</li>
+      <li>Tap the left photo box and choose the full-body photo from <b>My Photos</b>.</li>
+      <li>Tap the right photo box and choose one of the hairstyle photos from Photos.</li>
+      <li>Tap <b>Try this hairstyle</b>. The result takes about 20–40 seconds and is saved in <b>StyleBook</b>.</li>
+    </ol>
+
     <p>Questions: <a href="mailto:innocode.core@gmail.com">innocode.core@gmail.com</a></p>
   </div>
   <script>
     // Safari 는 공유 시트를 버튼 탭 직후에만 연다 — 그래서 파일을 미리 받아 두고 탭하면 바로 share() 한다.
-    const names = ['full-body.jpg', 'top-knit.jpg', 'bottom-denim-skirt.jpg', 'dress-floral.jpg'];
+    const names = ['full-body.jpg', 'top-knit.jpg', 'bottom-denim-skirt.jpg', 'dress-floral.jpg',
+      'hair-short-bob.jpg', 'hair-long-wave.jpg'];
     const btn = document.getElementById('saveAll');
     let files = null;
     Promise.all(names.map(n => fetch('samples/' + n)
